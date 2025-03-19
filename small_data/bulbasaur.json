@@ -1,0 +1,235 @@
+{
+    "base_experience": 64,
+    "pokemon_id": 1,
+    "name": "bulbasaur",
+    "abilities": [
+        34
+    ],
+    "hp": 45,
+    "attack": 49,
+    "defense": 49,
+    "special-attack": 65,
+    "special-defense": 65,
+    "speed": 45,
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "moves": [
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "14"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "15"
+        },
+        {
+            "level_learned_at": 10,
+            "move_learn_method": "level-up",
+            "move_id": "22"
+        },
+        {
+            "level_learned_at": 1,
+            "move_learn_method": "level-up",
+            "move_id": "33"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "34"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "38"
+        },
+        {
+            "level_learned_at": 4,
+            "move_learn_method": "level-up",
+            "move_id": "45"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "70"
+        },
+        {
+            "level_learned_at": 7,
+            "move_learn_method": "level-up",
+            "move_id": "73"
+        },
+        {
+            "level_learned_at": 32,
+            "move_learn_method": "level-up",
+            "move_id": "74"
+        },
+        {
+            "level_learned_at": 20,
+            "move_learn_method": "level-up",
+            "move_id": "75"
+        },
+        {
+            "level_learned_at": 46,
+            "move_learn_method": "level-up",
+            "move_id": "76"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "76"
+        },
+        {
+            "level_learned_at": 15,
+            "move_learn_method": "level-up",
+            "move_id": "77"
+        },
+        {
+            "level_learned_at": 15,
+            "move_learn_method": "level-up",
+            "move_id": "79"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "80"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "92"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "102"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "104"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "113"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "130"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "148"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "156"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "164"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "174"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "182"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "188"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "202"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "204"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "213"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "216"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "218"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "219"
+        },
+        {
+            "level_learned_at": 25,
+            "move_learn_method": "level-up",
+            "move_id": "230"
+        },
+        {
+            "level_learned_at": 39,
+            "move_learn_method": "level-up",
+            "move_id": "235"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "237"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "241"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "249"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "263"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "290"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "320"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "331"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "345"
+        }
+    ]
+}

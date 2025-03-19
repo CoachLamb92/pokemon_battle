@@ -1,0 +1,274 @@
+{
+    "base_experience": 62,
+    "pokemon_id": 4,
+    "name": "charmander",
+    "abilities": [
+        94
+    ],
+    "hp": 39,
+    "attack": 52,
+    "defense": 43,
+    "special-attack": 60,
+    "special-defense": 50,
+    "speed": 65,
+    "types": [
+        "fire"
+    ],
+    "moves": [
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "5"
+        },
+        {
+            "level_learned_at": 1,
+            "move_learn_method": "level-up",
+            "move_id": "10"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "14"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "14"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "15"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "25"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "34"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "38"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "44"
+        },
+        {
+            "level_learned_at": 1,
+            "move_learn_method": "level-up",
+            "move_id": "45"
+        },
+        {
+            "level_learned_at": 7,
+            "move_learn_method": "level-up",
+            "move_id": "52"
+        },
+        {
+            "level_learned_at": 31,
+            "move_learn_method": "level-up",
+            "move_id": "53"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "53"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "68"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "69"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "70"
+        },
+        {
+            "level_learned_at": 43,
+            "move_learn_method": "level-up",
+            "move_id": "82"
+        },
+        {
+            "level_learned_at": 49,
+            "move_learn_method": "level-up",
+            "move_id": "83"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "91"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "92"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "102"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "104"
+        },
+        {
+            "level_learned_at": 19,
+            "move_learn_method": "level-up",
+            "move_id": "108"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "126"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "156"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "157"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "157"
+        },
+        {
+            "level_learned_at": 37,
+            "move_learn_method": "level-up",
+            "move_id": "163"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "tutor",
+            "move_id": "164"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "182"
+        },
+        {
+            "level_learned_at": 25,
+            "move_learn_method": "level-up",
+            "move_id": "184"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "187"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "200"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "213"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "216"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "218"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "231"
+        },
+        {
+            "level_learned_at": 13,
+            "move_learn_method": "level-up",
+            "move_id": "232"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "237"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "241"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "246"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "249"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "251"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "263"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "264"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "280"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "290"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "315"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "332"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "machine",
+            "move_id": "337"
+        },
+        {
+            "level_learned_at": 0,
+            "move_learn_method": "egg",
+            "move_id": "349"
+        }
+    ]
+}
