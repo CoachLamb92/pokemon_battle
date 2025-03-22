@@ -1,7 +1,8 @@
 import json
-from utils.tables import nature_list
+from utils.tables import nature_list, type_chart, types
 from random import randrange
 import math
+# from Move import Move
 
 class Pokemon:
     def __init__(self, pokemon, level, moves=None):
@@ -36,6 +37,7 @@ class Pokemon:
             self._types = dictionary["types"]
             self._ability = dictionary["abilities"][0]
         self.initialise_move_list()
+        self._current_health = self.get_stats["hp"]
         
     def retrieve_base_stats(self):
         filepath = f"small_data/{self._pokemon_name}.json"
@@ -99,4 +101,48 @@ class Pokemon:
       
     def set_types(self, new_types): 
         self._types = new_types
-      
+    
+    def take_damage(self, damage):
+        self._current_health = max(0, self._current_health-damage)
+
+    def move_success_check(self, move):
+        roll = randrange(1, 101)
+        if roll <= move.get_accuracy():
+            self.execute_move(move)
+        else:
+            print("The move failed/missed!")
+
+    def execute_move(self, move, opponent_pokemon):
+        if move.get_category() != "status":
+            if move.get_power() > 0:
+                self.deal_damage(move, opponent_pokemon)
+            else:
+                print("This move does 0 or less damage")
+        else:
+            print("This is a non-damaging move")
+
+    def deal_damage(self, move, pokemon):
+        damage = self.calculate_damage(move, pokemon)
+        pokemon.take_damage(damage)
+
+    def calculate_damage(self, move, pokemon):
+        if move.get_category == "physical":
+            cat_ratio = self.get_stats["attack"]//pokemon.get_stats["defense"]
+        elif move.get_category == "special":
+            cat_ratio = self.get_stats["special-attack"]//pokemon.get_stats["special-defense"]
+        base_calc = ((((((2*self.get_level()))//5)+2)*move.get_power()*(cat_ratio))//50)
+        # next brackets include Burn, Screen, Targets, Weather, FlashFire
+        tier_2_calc = (base_calc * 1 * 1 * 1 * 1 * 1 + 2)//1
+        # final bracket includes Stockpile, Critical, DoubleDmg, Charge, HelpingHand, STAB, Type1, Type2, random
+        # critical = calculate_crit_chance()
+        critical = 2 if randrange(1, 25) == 1 else 1
+        stab = 1.5 if move.get_type() in self.get_types else 1
+        # make this a function?
+        attacking_index = types.index(move.get_type())
+        type_multiplier = 1
+        for type in pokemon.get_types():
+            defending_index = types.index(type)
+            type_multiplier *= type_chart[attacking_index][defending_index]
+
+        final_calc = (tier_2_calc * 1 * critical * 1 * 1 * 1 * stab * type_multiplier * randrange(85, 100))//100
+        return final_calc
