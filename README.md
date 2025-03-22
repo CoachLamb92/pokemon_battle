@@ -7,10 +7,18 @@ This is practice for a larger pokemon project. Hopefully this (or something simi
 ## Pressing:
 - Test new move-related methods in Pokemon Class
 - Refactor for ease-of-reading/delegate to functions
+- Add print-checking: test_move_success_check_returns_correctly_for_zero_accuracy_move
+- Add print-checking: test_execute_move_prints_correctly_for_status_move function
+- Add print-checking: test_execute_move_prints_correctly_for_non_damaging_move
+- Add mock function that tests for the calling of subsequent functions (test_move_success_check_returns_correctly_for_full_accuracy_move)
+- Add mock function that tests for the calling of subsequent functions (test_execute_move_calls_function_correctly)
+- Add mock function that tests for the calling of subsequent functions (test_deal_damage_returns_correctly)
+- Finish test calculate_damage_returns_correctly function
 
 ## General:
 - Add is_fainted attribute to Pokemon Class
 - Create a battle environment that takes the user pokemon and opponent pokemon
+- Look into mocking specific values of functions using patch
 
 ## Stretch:
 
