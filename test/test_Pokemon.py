@@ -1,4 +1,5 @@
 from src.Pokemon import Pokemon
+from src.Move import Move
 from unittest.mock import patch
 
 class Test_Pokemon_Attributes:
@@ -283,3 +284,115 @@ class Test_Pokemon_Methods:
         result = dummy_pokemon.get_types()
         # Assert
         assert result == expected_types
+
+    def test_get_current_health_returns_correctly(self):
+        # Arrange
+        input_poke = "charmander"
+        input_level = 5
+        expected = 50
+        # Act
+        dummy_pokemon = Pokemon(input_poke, input_level)
+        dummy_pokemon._current_health = 50
+        result = dummy_pokemon.get_current_health()
+        # Assert
+        assert expected == result
+
+class Test_Pokemon_Further_Methods:
+    def test_restore_current_health_returns_correctly(self):
+        # Arrange
+        input_poke = "squirtle"
+        input_level = 5
+        # Act
+        dummy_pokemon = Pokemon(input_poke, input_level)
+        initial_health = dummy_pokemon.get_current_health()
+        dummy_pokemon._current_health = 3
+        reduced_health = dummy_pokemon.get_current_health()
+        dummy_pokemon.restore_current_health()
+        result = dummy_pokemon.get_current_health()
+        # Assert
+        assert initial_health == result
+        assert reduced_health == 3
+
+    def test_take_damage_works_correctly(self):
+        # Arrange
+        input_poke = "bulbasaur"
+        # Act
+        dummy_pokemon = Pokemon(input_poke, 5)
+        initial_health = dummy_pokemon.get_current_health()
+        dummy_pokemon.take_damage(1)
+        result = dummy_pokemon.get_current_health()
+        # Assert
+        assert result == initial_health - 1
+
+        # Arrange
+        input_poke = "squirtle"
+        # Act
+        dummy_pokemon = Pokemon(input_poke, 5)
+        initial_health = dummy_pokemon.get_current_health()
+        dummy_pokemon.take_damage(5)
+        result = dummy_pokemon.get_current_health()
+        # Assert
+        assert result == initial_health - 5
+
+    def test_move_success_check_returns_correctly_for_zero_accuracy_move(self):
+        # Arrange
+        expected = "The move failed/missed!"
+        # Act
+        dummy_pokemon = Pokemon("charmander", 5)
+        dummy_move = Move(147)   # nobble, 1% accuracy
+        result = dummy_pokemon.move_success_check(dummy_move)
+        # Assert
+        assert result == None
+
+    # def test_move_success_check_returns_correctly_for_full_accuracy_move(self):
+    #     # Arrange
+    #     # Act
+    #     dummy_pokemon = Pokemon("charmander", 5)
+    #     dummy_move = Move(10)   # scratch, 100% accuracy   
+    #     result = dummy_pokemon.move_success_check(dummy_move)
+    #     # Assert
+    #     assert result == None
+
+    def test_execute_move_prints_correctly_for_status_move(self):
+        # Arrange
+        expected = "This is a non-damaging move"
+        attacking_pokemon = Pokemon("bulbasaur", 5)
+        defending_pokemon = Pokemon("squirtle", 5)
+        dummy_move = Move(45)   # growl, status move
+        # Act
+        result = attacking_pokemon.execute_move(dummy_move, defending_pokemon)
+        # Assert
+        # assert result == expected
+
+    def test_execute_move_prints_correctly_for_non_damaging_move(self):
+        # Arrange
+        expected = "This move does 0 or less damage"
+        attacking_pokemon = Pokemon("bulbasaur", 5)
+        defending_pokemon = Pokemon("squirtle", 5)
+        dummy_move = Move(148)   # splash, zero damage move
+        # Act
+        result = attacking_pokemon.execute_move(dummy_move, defending_pokemon)
+        # Assert
+        # assert result == expected
+
+    # def test_execute_move_calls_function_correctly(self):
+    #     # Arrange
+        # attacking_pokemon = Pokemon("bulbasaur", 5)
+        # defending_pokemon = Pokemon("squirtle", 5)
+        # dummy_move = Move(10)   # scratch, damaging move
+    #     # Act
+        # result = attacking_pokemon.execute_move(dummy_move, defending_pokemon)
+    #     # Assert
+
+    # def test_deal_damage_returns_correctly(self):
+        # Arrange
+        # attacking_pokemon = Pokemon("bulbasaur", 5)
+        # defending_pokemon = Pokemon("squirtle", 5)
+        # dummy_move = Move(10)   # scratch, damaging move
+
+    # def test calculate_damage_returns_correctly(self):
+        # Arrange
+
+        # Act
+
+        # Assert

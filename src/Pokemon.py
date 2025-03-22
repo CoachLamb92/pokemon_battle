@@ -37,7 +37,7 @@ class Pokemon:
             self._types = dictionary["types"]
             self._ability = dictionary["abilities"][0]
         self.initialise_move_list()
-        self._current_health = self.get_stats["hp"]
+        self._current_health = self.get_stats()["hp"]
         
     def retrieve_base_stats(self):
         filepath = f"small_data/{self._pokemon_name}.json"
@@ -102,6 +102,12 @@ class Pokemon:
     def set_types(self, new_types): 
         self._types = new_types
     
+    def get_current_health(self):
+        return self._current_health
+    
+    def restore_current_health(self):
+        self._current_health = self.get_stats()["hp"]
+
     def take_damage(self, damage):
         self._current_health = max(0, self._current_health-damage)
 
@@ -145,4 +151,4 @@ class Pokemon:
             type_multiplier *= type_chart[attacking_index][defending_index]
 
         final_calc = (tier_2_calc * 1 * critical * 1 * 1 * 1 * stab * type_multiplier * randrange(85, 100))//100
-        return final_calc
+        return max(final_calc, 1)

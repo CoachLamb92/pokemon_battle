@@ -54,4 +54,7 @@ test_moves = [
 [39, 'tail-whip', 'PLACEHOLDER', 'normal', 30, 100, -1, 'status'],
 [45, 'growl', 'PLACEHOLDER', 'normal', 40, 100, -1, 'status'],
 [52, 'ember', 'PLACEHOLDER', 'fire', 25, 100, 40, 'special'],
-[145, 'bubble', 'PLACEHOLDER', 'water', 30, 100, 40, 'special']]
+[145, 'bubble', 'PLACEHOLDER', 'water', 30, 100, 40, 'special'],
+[146, 'nibble', 'PLACEHOLDER', 'rock', 5, 99, 40, 'special'],
+[147, 'nobble', 'PLACEHOLDER', 'dragon', 5, 0, 40, 'special'],
+[148, 'splash', 'PLACEHOLDER', 'dragon', 5, 100, 0, 'physical']]
