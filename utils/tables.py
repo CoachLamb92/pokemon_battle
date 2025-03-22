@@ -47,3 +47,11 @@ type_chart = [
         [1, 0.5, 0.5, 1, 0.5, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 2],            #steel
         [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1]             #fairy
         ]
+
+test_moves = [
+[10, 'scratch', 'PLACEHOLDER', 'normal', 35, 100, 40, 'physical'],
+[33, 'tackle', 'PLACEHOLDER', 'normal', 35, 100, 40, 'physical'],
+[39, 'tail-whip', 'PLACEHOLDER', 'normal', 30, 100, -1, 'status'],
+[45, 'growl', 'PLACEHOLDER', 'normal', 40, 100, -1, 'status'],
+[52, 'ember', 'PLACEHOLDER', 'fire', 25, 100, 40, 'special'],
+[145, 'bubble', 'PLACEHOLDER', 'water', 30, 100, 40, 'special']]
