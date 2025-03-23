@@ -5,10 +5,10 @@ This is practice for a larger pokemon project. Hopefully this (or something simi
 
 # To-do list:
 ## Pressing:
-- Add is_fainted attribute to Pokemon Class
+- Create a battle environment that takes the user pokemon and opponent pokemon
 
 ## General:
-- Create a battle environment that takes the user pokemon and opponent pokemon
+- Create Trainer class
 
 ## Stretch:
 - Stress-test calculate_damage to be as accurate as possible
@@ -31,5 +31,6 @@ This is practice for a larger pokemon project. Hopefully this (or something simi
 - ~~Add mock function that tests for the calling of subsequent functions (test_move_success_check_returns_correctly_for_full_accuracy_move)~~
 - ~~Add mock function that tests for the calling of subsequent functions (test_execute_move_calls_function_correctly)~~
 - ~~Add mock function that tests for the calling of subsequent functions (test_deal_damage_returns_correctly)~~
-- Test new move-related methods in Pokemon Class
+- ~~Test new move-related methods in Pokemon Class~~
+- ~~Add is_fainted attribute to Pokemon Class~~
 
