@@ -354,11 +354,17 @@ class Test_Pokemon_Further_Methods:
     def test_move_success_check_returns_correctly_for_full_accuracy_move(self, mock_function):
         # Arrange
         dummy_pokemon = Pokemon("charmander", 5)
-        dummy_move = Move(10)   # scratch, 100% accuracy   
+        dummy_move = Move(10)   # scratch, 100% accuracy
+        expected = "charmander used scratch!\n"
         # Act
+        print_statement = io.StringIO()
+        sys.stdout = print_statement
         dummy_pokemon.move_success_check(dummy_move)
+        sys.stdout = sys.__stdout__
+        result = print_statement.getvalue()
         # Assert
         mock_function.assert_called_once()
+        assert expected == result
 
     def test_execute_move_prints_correctly_for_status_move(self):
         # Arrange
@@ -472,4 +478,26 @@ class Test_Pokemon_Further_Methods:
         sys.stdout = sys.__stdout__
         result = print_statement.getvalue()
         # Assert
+        assert expected == result
+
+    def test_is_fainted_returns_false_correctly(self):
+        # Arrange
+        dummy_pokemon = Pokemon("charmander", 5)
+        expected = False
+        # Act
+        result = dummy_pokemon.is_fainted()
+        # Assert
+        assert expected == result
+
+    def test_is_fainted_returns_true_correctly(self):
+        # Arrange
+        dummy_pokemon = Pokemon("charmander", 5)
+        expected_health = 0
+        expected = True
+        # Act
+        dummy_pokemon.take_damage(100)
+        result_health = dummy_pokemon.get_current_health()
+        result = dummy_pokemon.is_fainted()
+        # Assert
+        assert expected_health == result_health
         assert expected == result

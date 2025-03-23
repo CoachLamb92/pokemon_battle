@@ -114,6 +114,7 @@ class Pokemon:
     def move_success_check(self, move):
         roll = randrange(1, 101)
         if roll <= move.get_accuracy():
+            print(f"{self.get_pokemon_name()} used {move.get_move_name()}!")
             self.execute_move(move)
         else:
             print("The move failed/missed!")
@@ -170,3 +171,8 @@ class Pokemon:
         if output_text: print(output_text)
         # print(final_calc)
         return max(final_calc, 1)
+    
+    def is_fainted(self):
+        if self.get_current_health() == 0:
+            return True
+        return False
