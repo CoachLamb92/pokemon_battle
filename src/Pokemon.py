@@ -132,23 +132,41 @@ class Pokemon:
         pokemon.take_damage(damage)
 
     def calculate_damage(self, move, pokemon):
-        if move.get_category == "physical":
-            cat_ratio = self.get_stats["attack"]//pokemon.get_stats["defense"]
-        elif move.get_category == "special":
-            cat_ratio = self.get_stats["special-attack"]//pokemon.get_stats["special-defense"]
-        base_calc = ((((((2*self.get_level()))//5)+2)*move.get_power()*(cat_ratio))//50)
+        if move.get_category() == "physical":
+            # print(self.get_stats()["attack"], "bulb attack1")
+            # print(pokemon.get_stats()["defense"], " squirt def1")
+            cat_ratio = self.get_stats()["attack"]/pokemon.get_stats()["defense"]
+            # print(cat_ratio, "cat_ratio")
+        elif move.get_category() == "special":
+            cat_ratio = self.get_stats()["special-attack"]/pokemon.get_stats()["special-defense"]
+        else:
+            print("This should only return for a status move")
+            return 0
+        
+        base_calc = round((((((2*self.get_level()))//5)+2)*move.get_power()*(cat_ratio))/50)
+        # print(base_calc, "base_calc")
         # next brackets include Burn, Screen, Targets, Weather, FlashFire
         tier_2_calc = (base_calc * 1 * 1 * 1 * 1 * 1 + 2)//1
         # final bracket includes Stockpile, Critical, DoubleDmg, Charge, HelpingHand, STAB, Type1, Type2, random
         # critical = calculate_crit_chance()
         critical = 2 if randrange(1, 25) == 1 else 1
-        stab = 1.5 if move.get_type() in self.get_types else 1
+        stab = 1.5 if move.get_type() in self.get_types() else 1
         # make this a function?
         attacking_index = types.index(move.get_type())
         type_multiplier = 1
         for type in pokemon.get_types():
             defending_index = types.index(type)
             type_multiplier *= type_chart[attacking_index][defending_index]
-
+        if type_multiplier == 0:
+            print(f"It didn't affect the {pokemon.get_pokemon_name()}!")
+            return 0
+        elif type_multiplier == 0.5 or type_multiplier == 0.25:
+            output_text = "It wasn't very effective!"
+        elif type_multiplier == 2 or type_multiplier == 4:
+            output_text = "It was super-effective!"
+        else:
+            output_text = ""
         final_calc = (tier_2_calc * 1 * critical * 1 * 1 * 1 * stab * type_multiplier * randrange(85, 100))//100
+        if output_text: print(output_text)
+        # print(final_calc)
         return max(final_calc, 1)

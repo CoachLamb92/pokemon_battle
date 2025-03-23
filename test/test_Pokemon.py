@@ -1,6 +1,8 @@
 from src.Pokemon import Pokemon
 from src.Move import Move
 from unittest.mock import patch
+import sys
+import io
 
 class Test_Pokemon_Attributes:
     def test_set_pokemon_attributes(self):
@@ -336,63 +338,138 @@ class Test_Pokemon_Further_Methods:
 
     def test_move_success_check_returns_correctly_for_zero_accuracy_move(self):
         # Arrange
-        expected = "The move failed/missed!"
-        # Act
+        expected = "The move failed/missed!\n"
         dummy_pokemon = Pokemon("charmander", 5)
-        dummy_move = Move(147)   # nobble, 1% accuracy
-        result = dummy_pokemon.move_success_check(dummy_move)
+        dummy_move = Move(147)   # nobble, 0% accuracy
+        # Act
+        print_statement = io.StringIO()
+        sys.stdout = print_statement
+        dummy_pokemon.move_success_check(dummy_move)
+        sys.stdout = sys.__stdout__
+        result = print_statement.getvalue()
         # Assert
-        assert result == None
+        assert expected == result
 
-    # def test_move_success_check_returns_correctly_for_full_accuracy_move(self):
-    #     # Arrange
-    #     # Act
-    #     dummy_pokemon = Pokemon("charmander", 5)
-    #     dummy_move = Move(10)   # scratch, 100% accuracy   
-    #     result = dummy_pokemon.move_success_check(dummy_move)
-    #     # Assert
-    #     assert result == None
+    @patch('src.Pokemon.Pokemon.execute_move')
+    def test_move_success_check_returns_correctly_for_full_accuracy_move(self, mock_function):
+        # Arrange
+        dummy_pokemon = Pokemon("charmander", 5)
+        dummy_move = Move(10)   # scratch, 100% accuracy   
+        # Act
+        dummy_pokemon.move_success_check(dummy_move)
+        # Assert
+        mock_function.assert_called_once()
 
     def test_execute_move_prints_correctly_for_status_move(self):
         # Arrange
-        expected = "This is a non-damaging move"
+        expected = "This is a non-damaging move\n"
         attacking_pokemon = Pokemon("bulbasaur", 5)
         defending_pokemon = Pokemon("squirtle", 5)
         dummy_move = Move(45)   # growl, status move
         # Act
-        result = attacking_pokemon.execute_move(dummy_move, defending_pokemon)
+        print_statement = io.StringIO()
+        sys.stdout = print_statement
+        attacking_pokemon.execute_move(dummy_move, defending_pokemon)
+        sys.stdout = sys.__stdout__
+        result = print_statement.getvalue()
         # Assert
-        # assert result == expected
+        assert result == expected
 
     def test_execute_move_prints_correctly_for_non_damaging_move(self):
         # Arrange
-        expected = "This move does 0 or less damage"
+        expected = "This move does 0 or less damage\n"
         attacking_pokemon = Pokemon("bulbasaur", 5)
         defending_pokemon = Pokemon("squirtle", 5)
         dummy_move = Move(148)   # splash, zero damage move
         # Act
-        result = attacking_pokemon.execute_move(dummy_move, defending_pokemon)
+        print_statement = io.StringIO()
+        sys.stdout = print_statement
+        attacking_pokemon.execute_move(dummy_move, defending_pokemon)
+        sys.stdout = sys.__stdout__
+        result = print_statement.getvalue()
         # Assert
-        # assert result == expected
+        assert expected == result
 
-    # def test_execute_move_calls_function_correctly(self):
-    #     # Arrange
-        # attacking_pokemon = Pokemon("bulbasaur", 5)
-        # defending_pokemon = Pokemon("squirtle", 5)
-        # dummy_move = Move(10)   # scratch, damaging move
-    #     # Act
-        # result = attacking_pokemon.execute_move(dummy_move, defending_pokemon)
-    #     # Assert
-
-    # def test_deal_damage_returns_correctly(self):
+    @patch('src.Pokemon.Pokemon.deal_damage')
+    def test_execute_move_calls_function_correctly(self, mock_function):
         # Arrange
-        # attacking_pokemon = Pokemon("bulbasaur", 5)
-        # defending_pokemon = Pokemon("squirtle", 5)
-        # dummy_move = Move(10)   # scratch, damaging move
-
-    # def test calculate_damage_returns_correctly(self):
-        # Arrange
-
+        attacking_pokemon = Pokemon("bulbasaur", 5)
+        defending_pokemon = Pokemon("squirtle", 5)
+        dummy_move = Move(10)   # scratch, damaging move
         # Act
-
+        attacking_pokemon.execute_move(dummy_move, defending_pokemon)
         # Assert
+        mock_function.assert_called_once()
+    
+    @patch('src.Pokemon.Pokemon.take_damage')
+    @patch('src.Pokemon.Pokemon.calculate_damage')
+    def test_deal_damage_returns_correctly(self, mock_function_1, mock_function_2):
+        # Arrange
+        attacking_pokemon = Pokemon("bulbasaur", 5)
+        defending_pokemon = Pokemon("squirtle", 5)
+        dummy_move = Move(10)   # scratch, damaging move
+        # Act
+        attacking_pokemon.deal_damage(dummy_move, defending_pokemon)
+        # Assert
+        mock_function_1.assert_called_once()
+        mock_function_2.assert_called_once()
+
+    def test_calculate_damage_super_effective_text_outputs_correctly(self):
+        # Arrange
+        attacking_pokemon = Pokemon("charmander", 5)
+        defending_pokemon = Pokemon("bulbasaur", 5)
+        dummy_move = Move(52)   # ember, fire-type move
+        expected = "It was super-effective!\n"
+        # Act
+        print_statement = io.StringIO()
+        sys.stdout = print_statement
+        attacking_pokemon.calculate_damage(dummy_move, defending_pokemon)
+        sys.stdout = sys.__stdout__
+        result = print_statement.getvalue()
+        # Assert
+        assert expected == result
+
+    def test_calculate_damage_not_very_effective_text_outputs_correctly(self):
+        # Arrange
+        attacking_pokemon = Pokemon("charmander", 5)
+        defending_pokemon = Pokemon("squirtle", 5)
+        dummy_move = Move(52)   # ember, fire-type move
+        expected = "It wasn't very effective!\n"
+        # Act
+        print_statement = io.StringIO()
+        sys.stdout = print_statement
+        attacking_pokemon.calculate_damage(dummy_move, defending_pokemon)
+        sys.stdout = sys.__stdout__
+        result = print_statement.getvalue()
+        # Assert
+        assert expected == result
+
+    def test_calculate_damage_no_effect_text_outputs_correctly(self):
+        # Arrange
+        attacking_pokemon = Pokemon("charmander", 5)
+        defending_pokemon = Pokemon("pidgey", 5)
+        dummy_move = Move(149)   # ghost-flop, ghost-type move
+        expected = "It didn't affect the pidgey!\n"
+        # Act
+        print_statement = io.StringIO()
+        sys.stdout = print_statement
+        attacking_pokemon.calculate_damage(dummy_move, defending_pokemon)
+        sys.stdout = sys.__stdout__
+        result = print_statement.getvalue()
+        # Assert
+        assert expected == result
+
+    def test_calculate_damage_not_very_effective_text_outputs_correctly(self):
+        # Arrange
+        attacking_pokemon = Pokemon("charmander", 5)
+        defending_pokemon = Pokemon("squirtle", 5)
+        dummy_move = Move(52)   # ember, fire-type move
+        expected = "It wasn't very effective!\n"
+        # Act
+        print_statement = io.StringIO()
+        sys.stdout = print_statement
+        attacking_pokemon.calculate_damage(dummy_move, defending_pokemon)
+        sys.stdout = sys.__stdout__
+        result = print_statement.getvalue()
+        # Assert
+        assert expected == result
