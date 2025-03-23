@@ -57,4 +57,5 @@ test_moves = [
 [145, 'bubble', 'PLACEHOLDER', 'water', 30, 100, 40, 'special'],
 [146, 'nibble', 'PLACEHOLDER', 'rock', 5, 99, 40, 'special'],
 [147, 'nobble', 'PLACEHOLDER', 'dragon', 5, 0, 40, 'special'],
-[148, 'splash', 'PLACEHOLDER', 'dragon', 5, 100, 0, 'physical']]
+[148, 'splash', 'PLACEHOLDER', 'dragon', 5, 100, 0, 'physical'],
+[149, 'ghost-flop', 'PLACEHOLDER', 'ghost', 5, 100, 0, 'physical']]
